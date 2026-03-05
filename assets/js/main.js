@@ -1,27 +1,56 @@
-const slides = document.querySelectorAll(".slide");
-const dots = document.querySelectorAll(".dot");
+const heroSlides = document.querySelectorAll(".hero-bg");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
 
-if (slides.length > 0 && dots.length > 0) {
-  let index = 0;
+if (heroSlides.length > 1) {
+  let heroIndex = 0;
+  setInterval(() => {
+    heroSlides[heroIndex].classList.remove("active");
+    heroIndex = (heroIndex + 1) % heroSlides.length;
+    heroSlides[heroIndex].classList.add("active");
+  }, 4500);
+}
 
-  const renderSlide = (nextIndex) => {
-    slides.forEach((slide, idx) => slide.classList.toggle("active", idx === nextIndex));
-    dots.forEach((dot, idx) => dot.classList.toggle("active", idx === nextIndex));
-    index = nextIndex;
-  };
+if (filterButtons.length && galleryItems.length) {
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      filterButtons.forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+      const selected = button.dataset.filter;
 
-  const nextSlide = () => {
-    const upcoming = (index + 1) % slides.length;
-    renderSlide(upcoming);
-  };
-
-  const timer = setInterval(nextSlide, 5000);
-
-  dots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      clearInterval(timer);
-      const nextIndex = Number(dot.dataset.slide) || 0;
-      renderSlide(nextIndex);
+      galleryItems.forEach((item) => {
+        const show = selected === "all" || item.dataset.category === selected;
+        item.style.display = show ? "block" : "none";
+      });
     });
+  });
+}
+
+if (galleryItems.length && lightbox && lightboxImage && lightboxClose) {
+  galleryItems.forEach((item) => {
+    const image = item.querySelector("img");
+    if (!image) return;
+
+    image.addEventListener("click", () => {
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+      lightbox.classList.add("open");
+    });
+  });
+
+  const closeLightbox = () => {
+    lightbox.classList.remove("open");
+    lightboxImage.src = "";
+  };
+
+  lightboxClose.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeLightbox();
   });
 }
