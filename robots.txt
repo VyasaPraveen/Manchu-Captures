@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manchucaptures.com/sitemap.xml

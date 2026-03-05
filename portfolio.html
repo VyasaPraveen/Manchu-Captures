@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Photography Portfolio in Tirupati | Manchu Captures</title>
+  <meta name="description" content="Browse Manchu Captures portfolio: weddings, kids, and fashion photography from Tirupati's trusted 25-year studio.">
+  <link rel="canonical" href="https://manchucaptures.com/portfolio.html">
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script defer src="assets/js/portfolio.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="index.html">Manchu Captures</a>
+      <nav>
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services/wedding-photography-tirupati.html">Services</a></li>
+          <li><a href="portfolio.html" aria-current="page">Portfolio</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section container">
+    <h1>Dynamic Portfolio Gallery</h1>
+    <p class="section-lead">Filter by category and click any image for a full lightbox view.</p>
+    <div class="filters" role="tablist" aria-label="Portfolio categories">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="wedding">Wedding</button>
+      <button class="filter-btn" data-filter="kids">Kids</button>
+      <button class="filter-btn" data-filter="fashion">Fashion</button>
+    </div>
+
+    <section class="gallery-grid">
+      <figure class="gallery-item" data-category="wedding">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=700&q=80" alt="Wedding couple stage portrait">
+      </figure>
+      <figure class="gallery-item" data-category="wedding">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=700&q=80" alt="Bride and groom candid frame">
+      </figure>
+      <figure class="gallery-item" data-category="kids">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1516627145497-ae6968895b74?auto=format&fit=crop&w=700&q=80" alt="Kids outdoor portrait">
+      </figure>
+      <figure class="gallery-item" data-category="kids">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1503919545889-aef636e10ad4?auto=format&fit=crop&w=700&q=80" alt="Child smiling in sunlight">
+      </figure>
+      <figure class="gallery-item" data-category="fashion">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=80" alt="Fashion portrait with studio lighting">
+      </figure>
+      <figure class="gallery-item" data-category="fashion">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1464863979621-258859e62245?auto=format&fit=crop&w=700&q=80" alt="Editorial style portrait">
+      </figure>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog" aria-label="Image preview">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close image preview">&times;</button>
+    <img id="lightboxImage" alt="Expanded portfolio preview">
+  </div>
+
+  <a class="floating-wa" href="https://wa.me/91XXXXXXXXXX" aria-label="Chat on WhatsApp">Book Your Session</a>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2026 Manchu Captures, Tirupati. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
